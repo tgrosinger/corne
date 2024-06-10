@@ -11,6 +11,7 @@
 #define DEF_L 0
 #define NUM_L 1
 #define SYM_L 2
+#define TMUX_L 3
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt {
@@ -97,6 +98,110 @@
         };
     };
 
+    macros {
+        tmux_new: tmux_new {
+            label = "ZM_tmux_new";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LC(B)>
+                , <&macro_tap &kp C>
+                ;
+        };
+        tmux_zoom: tmux_zoom {
+            label = "ZM_tmux_zoom";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LC(B)>
+                , <&macro_tap &kp Z>
+                ;
+        };
+        tmux_scroll: tmux_scroll {
+            label = "ZM_tmux_scroll";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LC(B)>
+                , <&macro_tap &kp LEFT_BRACKET>
+                ;
+        };
+        tmux_wn_next: tmux_wn_next {
+            label = "ZM_tmux_wn_next";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LC(B)>
+                , <&macro_tap &kp N>
+                ;
+        };
+        tmux_wn_prev: tmux_wn_prev {
+            label = "ZM_tmux_wn_prev";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LC(B)>
+                , <&macro_tap &kp P>
+                ;
+        };
+        tmux_sp_v: tmux_sp_v {
+            label = "ZM_tmux_sp_v";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LC(B)>
+                , <&macro_tap &kp PERCENT>
+                ;
+        };
+        tmux_sp_h: tmux_sp_h {
+            label = "ZM_tmux_sp_h";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LC(B)>
+                , <&macro_tap &kp DOUBLE_QUOTES>
+                ;
+        };
+        vi_clip_cp: vi_clip_cp {
+            label = "ZM_vi_clip_cp";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp DOUBLE_QUOTES>
+                , <&macro_tap &kp PLUS>
+                , <&macro_tap &kp Y>
+                ;
+        };
+        vi_clip_pst: vi_clip_pst {
+            label = "ZM_vi_clip_pst";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp DOUBLE_QUOTES>
+                , <&macro_tap &kp PLUS>
+                , <&macro_tap &kp P>
+                ;
+        };
+        vi_macro: vi_macro {
+            label = "ZM_vi_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp AT>
+                , <&macro_tap &kp Q>
+                ;
+        };
+        vi_save: vi_save {
+            label = "ZM_vi_save";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp ESC>
+                , <&macro_tap &kp COLON &kp W &kp ENTER>
+                ;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -106,7 +211,7 @@
                 &kp Q      &kp W      &kp E       &kp R           &kp T        &kp Y            &kp U          &kp I       &kp O         &kp P
                 &as LCTL A &kp S      &kp D       &kp F           &kp G        &kp H            &as LGUI J     &kp K       &kp L         &as RCTL SEMI
                 &as LALT Z &kp X      &kp C       &kp V           &kp B        &kp N            &kp M          &kp COMMA   &kp DOT       &kp SLASH
-                           &none      &mo NUM_L   &kp LSHIFT                                    &kp SPACE      &mo SYM_L   &none
+                           &none      &mo NUM_L   &kp LSHIFT                                    &kp SPACE      &mo SYM_L   &mo TMUX_L
             >;
         };
 
@@ -127,6 +232,16 @@
                 &kp COLON  &none      &kp LPAR    &kp RPAR        &none         &kp LEFT        &kp DOWN       &kp UP      &kp RIGHT     &none
                 &none      &kp LBRC   &kp LBKT    &kp RBKT        &kp RBRC      &kp HOME        &kp PG_DN      &kp PG_UP   &kp END       &none
                            &none      &none       &none                                         &none          &none       &none
+            >;
+        };
+
+        tmux_layer {
+            label = "Tmux";
+            bindings = <
+                &vi_macro  &vi_save      &none       &none        &tmux_sp_v    &vi_clip_cp     &none          &none       &none         &vi_clip_pst
+                &none      &tmux_scroll  &none       &none        &none         &tmux_wn_prev   &none          &none       &tmux_wn_next &tmux_sp_h
+                &tmux_zoom &none         &tmux_new   &none        &none         &none           &none          &none       &none         &none
+                           &none         &kp DEL     &none                                      &none          &none       &none
             >;
         };
     };
