@@ -12,6 +12,7 @@
 #define NUM_L 1
 #define SYM_L 2
 #define TMUX_L 3
+#define META_L 4
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt {
@@ -228,7 +229,7 @@
                 &kp Q      &kp W      &kp E       &kp R           &kp T        &kp Y            &kp U          &kp I       &kp O         &kp P
                 &as LCTL A &kp S      &kp D       &kp F           &kp G        &kp H            &as LGUI J     &kp K       &kp L         &as RCTL SEMI
                 &as LALT Z &kp X      &kp C       &kp V           &kp B        &kp N            &kp M          &kp COMMA   &kp DOT       &kp SLASH
-                           &none      &mo NUM_L   &kp LSHIFT                                    &kp SPACE      &mo SYM_L   &mo TMUX_L
+                           &mo META_L &mo NUM_L   &kp LSHIFT                                    &kp SPACE      &mo SYM_L   &mo TMUX_L
             >;
         };
 
@@ -259,6 +260,16 @@
                 &mon_sel   &tmux_scroll  &none       &none        &lazygit      &tmux_wn_prev   &none          &none       &tmux_wn_next &tmux_sp_h
                 &tmux_zoom &none         &tmux_new   &none        &none         &none           &none          &none       &none         &none
                            &none         &kp DEL     &none                                      &none          &none       &none
+            >;
+        };
+
+        meta_layer {
+            label = "Meta";
+            bindings = <
+                &none      &none         &none       &none        &none         &none           &none          &none       &none         &none
+                &none      &none         &none       &none        &none         &none           &bt BT_PRV     &bt BT_CLR  &bt BT_NXT    &none
+                &none      &none         &none       &none        &none         &none           &none          &none       &none         &none
+                           &none         &none       &none                                      &none          &none       &none
             >;
         };
     };
