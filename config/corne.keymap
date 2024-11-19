@@ -226,6 +226,22 @@
                 = <&macro_tap &kp LG(LC(LS(LA(T))))>
                 ;
         };
+        browser: browser {
+            label = "ZM_browser";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LG(LC(LS(LA(B))))>
+                ;
+        };
+        vscode: vscode {
+            label = "ZM_vscode";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LG(LC(LS(LA(V))))>
+                ;
+        };
     };
 
     keymap {
@@ -276,7 +292,7 @@
             bindings = <
                 &none      &none         &none       &none        &terminal     &none           &none          &none       &none         &none
                 &mon_sel   &none         &none       &none        &none         &none           &bt BT_PRV     &bt BT_CLR  &bt BT_NXT    &none
-                &none      &none         &none       &none        &none         &none           &none          &none       &none         &none
+                &none      &none         &none       &vscode      &browser      &none           &none          &none       &none         &none
                            &none         &none       &none                                      &none          &none       &none
             >;
         };
