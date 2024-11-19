@@ -218,6 +218,14 @@
                 = <&macro_tap &kp LG(LC(LS(LA(A))))>
                 ;
         };
+        terminal: terminal {
+            label = "ZM_terminal";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LG(LC(LS(LA(T))))>
+                ;
+        };
     };
 
     keymap {
@@ -266,7 +274,7 @@
         meta_layer {
             label = "Meta";
             bindings = <
-                &none      &none         &none       &none        &none         &none           &none          &none       &none         &none
+                &none      &none         &none       &none        &terminal     &none           &none          &none       &none         &none
                 &mon_sel   &none         &none       &none        &none         &none           &bt BT_PRV     &bt BT_CLR  &bt BT_NXT    &none
                 &none      &none         &none       &none        &none         &none           &none          &none       &none         &none
                            &none         &none       &none                                      &none          &none       &none
