@@ -257,7 +257,7 @@
             label = "Tmux";
             bindings = <
                 &vi_macro  &vi_save      &none       &none        &tmux_sp_v    &vi_clip_cp     &none          &none       &none         &vi_clip_pst
-                &mon_sel   &tmux_scroll  &none       &none        &lazygit      &tmux_wn_prev   &none          &none       &tmux_wn_next &tmux_sp_h
+                &none      &tmux_scroll  &none       &none        &lazygit      &tmux_wn_prev   &none          &none       &tmux_wn_next &tmux_sp_h
                 &tmux_zoom &none         &tmux_new   &none        &none         &none           &none          &none       &none         &none
                            &none         &kp DEL     &none                                      &none          &none       &none
             >;
@@ -267,7 +267,7 @@
             label = "Meta";
             bindings = <
                 &none      &none         &none       &none        &none         &none           &none          &none       &none         &none
-                &none      &none         &none       &none        &none         &none           &bt BT_PRV     &bt BT_CLR  &bt BT_NXT    &none
+                &mon_sel   &none         &none       &none        &none         &none           &bt BT_PRV     &bt BT_CLR  &bt BT_NXT    &none
                 &none      &none         &none       &none        &none         &none           &none          &none       &none         &none
                            &none         &none       &none                                      &none          &none       &none
             >;
