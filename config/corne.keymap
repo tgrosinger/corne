@@ -242,6 +242,14 @@
                 = <&macro_tap &kp LG(LC(LS(LA(V))))>
                 ;
         };
+        discord: discord {
+            label = "ZM_discord";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LG(LC(LS(LA(D))))>
+                ;
+        };
     };
 
     keymap {
@@ -291,7 +299,7 @@
             label = "Meta";
             bindings = <
                 &none      &none         &none       &none        &terminal     &none           &none          &none       &none         &none
-                &mon_sel   &none         &none       &none        &none         &none           &bt BT_PRV     &bt BT_CLR  &bt BT_NXT    &none
+                &mon_sel   &none         &discord    &none        &none         &none           &bt BT_PRV     &bt BT_CLR  &bt BT_NXT    &none
                 &none      &none         &none       &vscode      &browser      &none           &none          &none       &none         &none
                            &none         &none       &none                                      &none          &none       &none
             >;
