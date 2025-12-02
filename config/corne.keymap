@@ -12,6 +12,7 @@
 #define NUM_L 1
 #define SYM_L 2
 #define TMUX_L 3
+#define SWAY_L 4
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt {
@@ -260,7 +261,7 @@
                 &kp Q      &kp W      &kp E       &kp R           &kp T        &kp Y            &kp U          &kp I       &kp O         &kp P
                 &as LCTL A &kp S      &kp D       &kp F           &kp G        &kp H            &kp J          &kp K       &kp L         &as RCTL SEMI
                 &as LALT Z &kp X      &kp C       &kp V           &kp B        &kp N            &kp M          &kp COMMA   &kp DOT       &kp SLASH
-                           &kp LMETA  &mo NUM_L   &kp LSHIFT                                    &kp SPACE      &mo SYM_L   &mo TMUX_L
+                           &mo SWAY_L &mo NUM_L   &kp LSHIFT                                    &kp SPACE      &mo SYM_L   &mo TMUX_L
             >;
         };
 
@@ -268,7 +269,7 @@
             display-name = "Num";
             bindings = <
                 &kp N1     &kp N2     &kp N3      &kp N4          &kp N5        &kp N6          &kp N7         &kp N8      &kp N9        &kp N0
-                &none      &none      &kp LG(E)   &kp LG(R)       &none         &none           &kp N4         &kp N5      &kp N6        &kp COLON
+                &none      &none      &none       &none           &none         &none           &kp N4         &kp N5      &kp N6        &kp COLON
                 &kp F1     &kp F2     &kp F12     &kp F4          &kp F5        &none           &kp N1         &kp N2      &kp N3        &kp DOT
                            &none      &none       &none                                         &none          &kp N0      &kp DOT
             >;
@@ -285,12 +286,22 @@
         };
 
         tmux_layer {
-            label = "Tmux";
+            display-name = "Tmux";
             bindings = <
                 &vi_macro  &vi_save      &none       &none        &tmux_sp_v    &vi_clip_cp     &bt BT_NXT     &bt BT_PRV  &bt BT_CLR    &vi_clip_pst
                 &none      &tmux_scroll  &none       &none        &lazygit      &tmux_wn_prev   &none          &none       &tmux_wn_next &tmux_sp_h
                 &tmux_zoom &none         &tmux_new   &none        &none         &none           &none          &none       &none         &none
                            &none         &kp DEL     &none                                      &none          &none       &none
+            >;
+        };
+
+        sway_layer {
+            display-name = "Sway";
+            bindings = <
+                &kp LG(Q)  &kp LG(W)     &kp LG(E)   &kp LG(R)    &none         &none           &none          &none       &none         &none
+                &kp LG(A)  &kp LG(S)     &kp LG(D)   &kp LG(F)    &none         &kp LG(H)       &kp LG(J)      &kp LG(K)   &kp LG(L)     &kp LG(ENTER)
+                &none      &none         &none       &kp LG(V)    &kp LG(B)     &none           &kp LG(N1)     &kp LG(N2)  &kp LG(N3)    &kp LG(N4)
+                           &none         &none       &none                                      &kp RSHIFT     &kp RMETA   &none
             >;
         };
     };
