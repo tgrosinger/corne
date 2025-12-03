@@ -299,7 +299,7 @@
             display-name = "Sway";
             bindings = <
                 &kp LS(LG(Q)) &kp LG(W)     &kp LG(E)   &kp LG(R)    &none         &none           &none          &none       &none         &none
-                &kp LG(A)     &kp LG(S)     &kp LG(D)   &kp LG(F)    &none         &kp LG(H)       &kp LG(J)      &kp LG(K)   &kp LG(L)     &kp LG(ENTER)
+                &kp LG(A)     &kp LG(S)     &kp LG(D)   &kp LG(F)    &kp LG(G)     &kp LG(H)       &kp LG(J)      &kp LG(K)   &kp LG(L)     &kp LG(ENTER)
                 &none         &none         &none       &kp LG(V)    &kp LG(B)     &none           &kp LG(N1)     &kp LG(N2)  &kp LG(N3)    &kp LG(N4)
                               &none         &none       &none                                      &kp RSHIFT     &kp RMETA   &kp LG(TAB)
             >;
