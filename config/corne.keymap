@@ -118,6 +118,15 @@
                 , <&macro_tap &kp Z>
                 ;
         };
+        tmux_sess: tmux_sess {
+            label = "ZM_tmux_sess";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LC(B)>
+                , <&macro_tap &kp S>
+                ;
+        };
         tmux_scroll: tmux_scroll {
             label = "ZM_tmux_scroll";
             compatible = "zmk,behavior-macro";
@@ -289,7 +298,7 @@
             display-name = "Tmux";
             bindings = <
                 &vi_macro  &vi_save      &none       &none        &tmux_sp_v    &vi_clip_cp     &bt BT_NXT     &bt BT_PRV  &bt BT_CLR    &vi_clip_pst
-                &none      &tmux_scroll  &none       &none        &lazygit      &tmux_wn_prev   &none          &none       &tmux_wn_next &tmux_sp_h
+                &tmux_sess &tmux_scroll  &none       &tmux_zoom   &lazygit      &tmux_wn_prev   &none          &none       &tmux_wn_next &tmux_sp_h
                 &tmux_zoom &none         &tmux_new   &none        &none         &none           &none          &none       &none         &none
                            &none         &kp DEL     &none                                      &none          &none       &none
             >;
